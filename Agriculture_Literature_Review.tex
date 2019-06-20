@@ -20,11 +20,15 @@ In this research project, we are trying to develop a method for Precision weedin
 Weed Detection in Row-Crops by Combining
 Spatial and Spectral Information ~\cite{louargant-2018-mdpi-unsupervised}}
 	
-	This paper talks about 
+	This paper introduces an automatic approach in weed detection in order to reduce herbicide use in agriculture. They combine spatial and spectral information/features from four band multi spectral images. Images acquired using a camera mounted on a pole 3m above the ground. The automatic part of this method is as follows. They consider row crop arrangement as a ground truth in grouping the plants. In other words, everything not on the crop rows will be considered weed and things on the crop row might be either weed or plant. Then using these informations, a training dataset containing the multi-spectral image features is created and use to train a support vector machine (SVM). At the end for testing, inter-row crops are classified as weed (only based on spatial feature) and in-row crops are classified as either weed or crop using the SVM and the spectral features. They report 89 as their weed detection rate using the method mentioned earlier (combination of both spatial and spectral features), 79 for using only spatial features and 75 for using only spectral features. 
 	
-	\subsection{sfsdfsdf}
+	\subsection{More on this method}
 	
-	In this task,
+	One way to distinguish different approaches for detection and localization of weeds is the distance and the vehicle from which the images are captured which includes satellite, aerial, terrestrial vehicle, etc. Another one is the sensor used to capture images. Images can only have the three color bands (RGB) or might have other bands as well such as Near Infrared. One interesting approach is to use UAVs to capture multi-spectral images from large areas in a field. Based on the previous studies, weeds and crops can be discriminated using their reflectance spectra. However, there are some limitations: number of spectral bands is limited, field condition affects the spectral reflectance information, spectral reflectance changes with psychological stress. 
+	
+	At the time that this paper was written, the usual camera for weed detection on a UAV had 4 bands (near infrared + RGB). NIR helps separation of the vegetation and the background. 
+	
+	\subsection{Vegetation Indices}
 	
 	
 	
