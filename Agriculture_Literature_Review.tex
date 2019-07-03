@@ -34,7 +34,14 @@ Spatial and Spectral Information ~\cite{louargant-2018-mdpi-unsupervised}}
 	
 	\subsection{Geometrical Information for weed detection}
 	
-	One approach for weed detection is to use geometrical information for detecting weeds. One is automatic row detection using textural based methods. 
+	One approach for weed detection is to use geometrical information for detecting weeds. One is automatic row detection using textural based methods. People have used Gabor filters and Object-Based Image Analysis (OBIA) to detect the crop rows by segmentation. OBIA is something like a histogram of texture. 
+	
+	\subsection{Some Spatial and Spectral combination methods}
+	
+	There has been some methods that combined spatial and spectral features together using Bayesian methods and pixel neighborhood similarity. Another interesting method was using spatial information to detect inter-row weeds and then using some sort of nearest neighbor classifier with the vegetation index to classify in-row crops. Another method combined SVM and OBIA and reached 96 percent accuracy in sunflower fields. They also added a feature selection method which helped the accuracy. In some other methods, hough transform and randome forest are used which reached 96 percent accuracy. Another paper reconstructed the plants in 3D and used their average height to decide whether they are weed or crop. 
+	
+	In general, supervised classification is much better than unsupervised but it needs labeled training data. On the other hand, unsupervised methods can be used to generated labeled data. 
+	
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
 	
