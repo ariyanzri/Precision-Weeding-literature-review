@@ -42,6 +42,23 @@ Spatial and Spectral Information ~\cite{louargant-2018-mdpi-unsupervised}}
 	
 	In general, supervised classification is much better than unsupervised but it needs labeled training data. On the other hand, unsupervised methods can be used to generated labeled data. 
 	
+	\subsection{The proposed method in this paper}
+	
+	In the proposed method, they used a multi-spectral imaging system on a pole hold by a person who moves across the field. The sensors take 12 megapixel images in 550 (green), 660 (red), 735 (red-edge) and 790 (near-infrared) bands. The images were captured in a sunny day around noon. GPS was used to geo-tag the images. Images were taken every 1.5 meter which allows some overlap. There has been some preprocessing including color and illumination corrections.They proposed three different methods, one is based on spatial features only, another based on spectral features and the last one based on the combination of these two.
+	
+	\subsubsection{Spatial method}
+	
+	The algorithm proposed for this method uses the spatial information and some well-known image processing techniques to detect rows on which plants are sowed. It comprises of following steps:
+	
+	\begin{itemize}
+		\item Using Fourier Transform to find the row orientation.
+		\item Discerning Soil from Vegetation using NDVI index. 
+		\item Using Hough Transform to detect lines that correspond to crop rows. The angle of the lines are limited to the orientation of the row which was calculated in the first step. Only the vegetation pixels are used.
+		\item Finding the edges of the vegetations using connected components and linear regression on both sides of the row. 
+		\item Crop and weed detection using a decision tree based on shape of the connected components. (axis orientation, area, etc.)
+	\end{itemize}
+	
+	
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
 	
