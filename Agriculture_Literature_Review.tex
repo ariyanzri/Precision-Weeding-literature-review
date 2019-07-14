@@ -96,6 +96,8 @@ The following image summarizes the workflow of the proposed method.
 	\end{center}
 \end{figure}
 	
+In the second step, a histogram equalization algorithm is used to increase the contrast between lettuces and the background. The algorithm is called CLAHE. In the third step, each image first is divided into 250X250 size sections and then a 20 by 20 window is traversed over these sections to detect and count lettuces. A non-maximum suppression is also used. For each lettuce its size is then detected and reported back to the user in a csv file. The whole platform has a GUI which makes things easier for users. 
+
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
 	
