@@ -1,6 +1,9 @@
 \documentclass{article}  
 \usepackage[margin=3cm]{geometry}
 \usepackage{hyperref}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{graphicx}
 
 \begin{document}  
   
@@ -58,6 +61,40 @@ Spatial and Spectral Information ~\cite{louargant-2018-mdpi-unsupervised}}
 		\item Crop and weed detection using a decision tree based on shape of the connected components. (axis orientation, area, etc.)
 	\end{itemize}
 	
+\section{Combining computer vision and deep learning to enable ultra-scale aerial phenotyping and precision agriculture: A case study of lettuce production ~\cite{bauer-2019-combining-yield}}
+
+This paper is discussing a novel Deep-Learning-based approach in analyzing yield-related crop phenotyping. They equipped fixed-wing light aircrafts with NDVI sensors to acquire the desired images. The platform which is called Airsurf-lettuce, is capable of scoring and categorizing iceberg lettuces with more than 98 percent accuracy. They trained their deep learning model using 100000 labeled lettuce signals. At the end, their platform is capable of producing a map of lettuce size (heat map) for detecting the areas that are ready for harvest. 
+
+Growing lettuce is highly affected by the whether. Bad whether can cause reduction in the quantity as well as quality of the products. In average only 70-80 percent of planted lettuces will be used in the market. The goal of this paper is to use deep learning methods to find the best time for harvesting the crops.
+
+In this paper they introduced Airsurf as an open source yield-related phenotyping analysis platform. In short, they capture NDVI images using NDVI sensors, then use CNNs to count crops in each image and other supervised ML techniques for assessing the quality of each individual crop. A customized and commercialized version of Airsurf (Airsurf-Lettuce) is used for lettuce. 
+
+\subsection{Material and Methods}
+
+\subsubsection{Normalized Difference Vegetation Index (NDVI)}
+NDVI is a well-known index which is widely used to discern between vegetation and non-vegetation areas in an image usually from a field or a forest. It is used to determine how dense vegetation is in an area. According to biologists, plants re-emit solar radiation in the Near-Infrared spectral (NIR) due to the fact that those radiations do not have enough energy to be used in photosynthesis and only result in overheating the plants if absorbed. Therefore, plants are relatively bright in NIR band. On the other hand, snow, clouds and other materials are relatively dark in NIR but relatively bright in Red spectral band. Scientists have been using these facts to define a vegetation index using the following formula:
+
+\begin{eqnarray*}
+	NDVI = \frac{NIR - RED}{NIR + RED}
+\end{eqnarray*}
+
+This is called Normalized Difference Vegetation Index or NDVI. It is usually between -1 and 1 but most of the surfaces on earth produce a number between 0 and 1. An NDVI close to 1 shows a dense vegetation at that specific area in an image. 
+
+Due to the usefulness of this index, there has be NDVI cameras developed in the past years. In this paper, they equipped their light aircraft with such a camera which were able to capture NDVI images at the height of around 300m (1000 feet) when the aircraft was flying with a speed of 180 to 200 km/h. The farmers regularly capture NDVI images 4-5 times each season. Each image is 1.5 - 2 GB in size. They used the acquired images of one field to train the models. For validating the final model, farmers counted all the crops in that specific field manually and labeled some randomly chosen lettuces for quality assessment phase. 
+
+\subsubsection{The dataset}
+
+From the NDVI images acquired, they randomly selected 60 subsections each containing between 300 and 1000 lettuce heads. Then they labeled them using 20 by 20 pixel bounding boxes. Then a balanced training dataset of 100000 patches of size 20 by 20 were created to train a CNN for classifying lettuce vs non-lettuce. Then a non-overlapping slide window were applied over the images to separate foreground and background using this CNN. Note that training and testing sets were balanced and a validation set is used to avoid overfitting of the network. 
+
+\subsubsection{The analysis workflow of the platform}
+
+The following image summarizes the workflow of the proposed method. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{img/1}
+	\end{center}
+\end{figure}
 	
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
