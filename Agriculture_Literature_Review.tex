@@ -98,6 +98,18 @@ The following image summarizes the workflow of the proposed method.
 	
 In the second step, a histogram equalization algorithm is used to increase the contrast between lettuces and the background. The algorithm is called CLAHE. In the third step, each image first is divided into 250X250 size sections and then a 20 by 20 window is traversed over these sections to detect and count lettuces. A non-maximum suppression is also used. For each lettuce its size is then detected and reported back to the user in a csv file. The whole platform has a GUI which makes things easier for users. 
 
+\subsubsection{The Neural Network Architecture}
+
+The Neural Network which was used to classify 20 by 20 patches into lettuce/non-lettuce signals has a deep architecture similar to AlexNet. However, they did not use any pre-trained networks and they train it from scratch based on the paper. The structure of the network comprises of 4 blocks of convolution layers plus a fully connected layer at the end of the network. It seems that the activation function for the last layer is sigmoid. Their network was trained on the training data for 10 epoch (stopped using validation set). 
+
+\subsubsection{Size Categorization Algorithm}
+
+For size categorization, they have used an unsupervised approach. They create a histogram and put the NDVI pixel values in 20 by 20 patches into 10 bins. Then using these histograms and k-means algorithm, they put the patches into 3 different clusters. Then by calculating the dot product between the histogram values and bin number (pixel intensity), they determine which cluster is small, which is medium and which is large. 
+
+\subsubsection{Improvement for the CNN Classifier}
+
+To improve the efficiency of the detection and counting algorithm, they first divide the big NDVI images into 250 by 250 sections and then run the sliding window technique on that. Moreover, they use a non-maximum suppression technique when doing the sliding window to avoid counting any lettuces for two times. They also manually labeled another 500 lettuces in the very bright or dark areas and re-train the network. 
+
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
 	
