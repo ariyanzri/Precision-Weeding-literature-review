@@ -110,6 +110,22 @@ For size categorization, they have used an unsupervised approach. They create a 
 
 To improve the efficiency of the detection and counting algorithm, they first divide the big NDVI images into 250 by 250 sections and then run the sliding window technique on that. Moreover, they use a non-maximum suppression technique when doing the sliding window to avoid counting any lettuces for two times. They also manually labeled another 500 lettuces in the very bright or dark areas and re-train the network. 
 
+\subsubsection{GPS-tagged Harvest map}
+
+In the next step, a distribution map of lettuce sizes is generated. Then each field is gridded based on geographical features and GPS information and each cell of the grid is colored with the most representative size category of the lettuce in that cell. This is how the harvest map is generated. This can be used by the farmers to find the regions on each field that are ready for harvest. A 3D bar plot is also generated that shows the distribution of the lettuces in terms of their size and number for each cell of the grid. 
+
+\subsubsection{Validation of counting algorithm}
+
+For validating the counting algorithm they tested Airsurf-L on three different fields in UK. They divided the fields into three different region types: Small regions with less than 400 lettuces, Large regions with greater than 900 lettuces and mixed regions with variety number of lettuces in it. The R-squared correlation between human counting the lettuces and Airsurf results for small regions, large regions and mixed regions were 0.978, 0.988 and 0.9997 respectively. R-squared is calculated using the following formula:
+
+\begin{eqnarray*}
+R^2 = 1-\frac{\sum_{i=1}^{n}(y_i -f_i)^2}{\sum_{i=1}^{n}(y_i -\bar{y})^2}
+\end{eqnarray*}
+
+\subsubsection{Future Thoughts and My Ideas}
+
+It is mentioned in the paper that we can add other features such as weather change and soil phenotype information to better predict the harvest time. I was thinking of predicting the heatmap in a time line using a combination of ML and DL methods. It is also possible to use this platform on other crops such as wheat and rice. 
+
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
 	
