@@ -8,7 +8,7 @@
 \begin{document}  
   
 \begin{center}
-    {\Large {\bf Precision weeding in lettuce and spinach fields}} \\
+    {\Large {\bf Machine Learning in Agriculture}} \\
     \vspace{0.3cm}
     {\Large Literature Review} \\
     
@@ -125,6 +125,36 @@ R^2 = 1-\frac{\sum_{i=1}^{n}(y_i -f_i)^2}{\sum_{i=1}^{n}(y_i -\bar{y})^2}
 \subsubsection{Future Thoughts and My Ideas}
 
 It is mentioned in the paper that we can add other features such as weather change and soil phenotype information to better predict the harvest time. I was thinking of predicting the heatmap in a time line using a combination of ML and DL methods. It is also possible to use this platform on other crops such as wheat and rice. 
+
+\section{Canopeo: A Powerful New Tool for Measuring Fractional
+Green Canopy Cover ~\cite{patrignan-2015-canopeo}}
+
+This paper introduces a tool for estimating the canopy coverage of different plants, called "Canopeo". The corresponding author is an associate professor at the plants and soil sciences department at the Oklahoma State University. They have developed android and IOS applications for their tool as well. In the following paragraphs, I will include some details about their method and their developed applications.
+
+\subsection{Previous Works}
+In this section, I will include useful information I retrieved related to the previous works mentioned in the paper. I also saved some interesting papers for further reading. \\
+
+Apparently there are two methods for canopy cover estimation: Manual Pixel Classification (MPC) and Automatic Color Threshold (ACT). In the first one, for each image a set of about 200 random pixels is given to an expert for manual classification (vegetation or soil) and then other pixels are classified based on this. SamplePoint is a software that uses this method. On the other hand, in the second method, threshold values are specified by the user and then used to classify image pixels. SigmaScan is an software that uses this method. It is used to analyze canopy cover and light interception in soybean. These two softwares were reported to be slow and only appropriate for small images. \\
+
+FGCC is short form of Fractional Green Canopy Cover. Alongside with other indexes such as NDVI, Crop Height and LAI (leaf area index) can be used in many applications in the plant science field. 
+
+\subsection{Canopeo, The Methodology}
+
+This software uses an ACT method and works with RGB images. In short, it uses R/G and B/G ratios and also Excess Green Index ($2G - R - B$). The pixels of the binary result image is calculated using the formula below:
+
+\begin{eqnarray}
+\left\{
+	\begin{array}{ll}
+		1  & \mbox{if } \frac{R}{G} < P_1 \;\;AND\;\; \frac{B}{G} < P_2 \;\;AND\;\; 2G - R - B > P_3 \\
+		0 & \mbox{ } otherwise
+	\end{array}
+\right.
+\end{eqnarray}
+
+where $P_1, P_2$ are parameters with values near 1 that classify pixels that are in the green band. $P_3$ is a parameter that sets the minimum excess green index which is fixed to 20. Excess green index is useful for classifying dark or gray pixels that can not be classified using the other two ratios. By analyzing connected neighboring pixels, Canopeo can remove some noise too. \\
+
+These were all relevant details regarding the methodology of this tool. Other informations in the paper are related to discussion. 
+
 
 \bibliographystyle{plain}
 \bibliography{Agriculture_Literature_Review}
