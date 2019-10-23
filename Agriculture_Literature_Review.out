@@ -10,3 +10,16 @@
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Normalized Difference Vegetation Index \(NDVI\)}{subsection.2.1}% 10
 \BOOKMARK [3][-]{subsubsection.2.1.2}{The dataset}{subsection.2.1}% 11
 \BOOKMARK [3][-]{subsubsection.2.1.3}{The analysis workflow of the platform}{subsection.2.1}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.4}{The Neural Network Architecture}{subsection.2.1}% 13
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Size Categorization Algorithm}{subsection.2.1}% 14
+\BOOKMARK [3][-]{subsubsection.2.1.6}{Improvement for the CNN Classifier}{subsection.2.1}% 15
+\BOOKMARK [3][-]{subsubsection.2.1.7}{GPS-tagged Harvest map}{subsection.2.1}% 16
+\BOOKMARK [3][-]{subsubsection.2.1.8}{Validation of counting algorithm}{subsection.2.1}% 17
+\BOOKMARK [3][-]{subsubsection.2.1.9}{Future Thoughts and My Ideas}{subsection.2.1}% 18
+\BOOKMARK [1][-]{section.3}{Canopeo: A Powerful New Tool for Measuring Fractional Green Canopy Cover \040patrignan-2015-canopeo}{}% 19
+\BOOKMARK [2][-]{subsection.3.1}{Previous Works}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.2}{Canopeo, The Methodology}{section.3}% 21
+\BOOKMARK [1][-]{section.4}{Unmanned aerial vehicle \(UAV\) derived structure- from-motion photogrammetry point clouds for oil palm \(Elaeis guineensis\) canopy segmentation and height estimation \040fawcettuav2019canopy}{}% 22
+\BOOKMARK [1][-]{section.5}{Ultra-fine grain landscape-scale quan- tification of dryland vegetation structure with drone-acquired structure-from-motion photogrammetry \040cunliffe-2016-ultra}{}% 23
+\BOOKMARK [1][-]{section.6}{4D crop monitoring: Spatio-temporal reconstruction for agriculture \040dong-2017-4d}{}% 24
+\BOOKMARK [1][-]{section.7}{Branching Gaussian Processes with Applications to Spatiotemporal Reconstruction of 3D Trees \040simek-2016-branching}{}% 25
