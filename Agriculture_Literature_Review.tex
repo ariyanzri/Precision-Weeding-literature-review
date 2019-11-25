@@ -166,6 +166,17 @@ tification of dryland vegetation structure with drone-acquired structure-from-mo
 
 \section{4D crop monitoring: Spatio-temporal reconstruction for agriculture ~\cite{dong-2017-4d}}
 
+In this paper, they tackled the problem of estimating the 3D structure of plants (peanut in this case) over time. They call their method, spatio-temporal reconstruction. They represent the plant 3D structure using 3D point clouds. So, they produce a 3D point cloud for each time frame. In short, they follow the pipeline below:
+
+\begin{itemize}
+\item[1.] Extracting feature points (SIFT) and keep those that have high number of matching between consecutive image frames. (using RANSAC and nearest neighbor).
+\item[2.] Estimating camera states including translation, rotation, and so on by creating a factor graph for each row and each session of imaging. This is done by optimizing a factor graph. After having the camera states, they generate a point cloud for each row and session. 
+\item[3.] Doing data association over time using a robust method. They use two methods for associating feature points from different rows and different time to each other. They find a good way of associating different points in the point cloud to each other. The first method is called back projection bound search. In that they bound the search area for finding the association by defining a bounding box around the feature points. This is a way of eliminating outliers. Second, they homography to associate feature points to each other from different time sessions. 
+\item[4.] The last step is 4D reconstruction which is done again by using a factor graph and optimizing it. In the final stage, they have a sequence of point clouds. 
+\end{itemize}
+
+They gathered their own dataset from a peanut field in GA. In evaluating their method, they measure two different things. First is to measure whether the point cloud is objectively aligned in the space or not (comparing to the ground truth). For this, compare their method with another method visually. For the second measurement, the calculate the RMS error between an estimated plant property like canopy height and the ground truth gathered by humans. They reported a 2.93 cm RMSE for plant height. 
+
 \section{Branching Gaussian Processes with Applications to Spatiotemporal Reconstruction of 3D Trees ~\cite{simek-2016-branching}}
 
 \section{Inferring Grammar-based Structure Models from 3D Microscopy Data ~\cite{schlecht-2007-inferring}}
